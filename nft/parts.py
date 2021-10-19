@@ -1,3 +1,6 @@
+# EVERY IMAGE NEEDED "loc" KEY BECAUSE IMAGES WERE NOT CREATED IN LAYERS.
+## to simplify you only need to do every image in layers and save it in that way from your edition software.
+
 PARTS = {
     "cuerpo" : {
         "img" : [

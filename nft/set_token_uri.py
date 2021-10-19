@@ -1,11 +1,15 @@
 from abi import abi
 from web3 import Web3, HTTPProvider
 from test2 import ipfs_to_id
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # CONNECTING TO CONTRACT
 
-polygon_url = 'https://polygon-mumbai.infura.io/v3/7bc810d95b2a4b289c5b57fed441236d'
-contract_address = '0xf99F9BA4CF4c791F833397ECC2047D34B3fdb19E'
+polygon_url = os.getenv("POLYGON_URL")
+contract_address = os.getenv("CONTRACT")
 contract_abi = abi
 web3 = Web3(HTTPProvider(polygon_url))
 print(web3.isConnected())
@@ -29,7 +33,7 @@ tx = {
 #print('Your token Id is: ',id)
 #tokenCounter = contract.functions.tokenCounter().call()
 #print('the number of nfts deployed are: ', tokenCounter)
-key = 'fc77c63111af8a027126fe702aeefe631315506088834f5da81c9d315cc9d0b8'
+key = os.getenv("PRIVATE_KEY")
 # MINT
 id = 4
 set_token_uri_tx = contract.functions.setTokenURI(id,ipfs_to_id(id)).buildTransaction(tx)

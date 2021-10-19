@@ -5,11 +5,17 @@ from pathlib import Path
 import json
 import requests
 import time
+from dotenv import load_dotenv
+import os
+
+# LOAD .ENV
+
+load_dotenv()
 
 # CONNECTING TO CONTRACT
 
-polygon_url = 'https://polygon-mumbai.infura.io/v3/7bc810d95b2a4b289c5b57fed441236d'
-contract_address = '0xf99F9BA4CF4c791F833397ECC2047D34B3fdb19E'
+polygon_url = os.getenv("POLYGON_URL")
+contract_address = os.getenv("CONTRACT")
 contract_abi = abi
 web3 = Web3(HTTPProvider(polygon_url))
 print(web3.isConnected())
